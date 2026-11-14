@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roti Hangat Kita | Roti, Kue & Donat Segar</title>
+  <meta name="description" content="Roti, kue, dan donat buatan rumahan. Pesan lewat Shopee atau GoFood.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#17171A', cocoa: '#17171A', berry: '#DC5A6D', 'berry-dark': '#C24458', blush: '#FDF4F4', mist: '#F4F8FD', butter: '#FFD66B' },
+          fontFamily: { display: ['Oswald', 'Impact', 'sans-serif'], sans: ['Montserrat', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-padding-top: 6.5rem;
+    }
+
+    body {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* Navbar: transparan di atas, glass saat di-scroll */
+    .nav-bar {
+      margin-top: .75rem;
+      padding: .9rem .5rem;
+      border-radius: 1.5rem;
+      border: 1px solid transparent;
+      transition: margin .35s ease, padding .35s ease, background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .nav-bar.is-scrolled {
+      margin-top: .5rem;
+      padding: .6rem .75rem .6rem 1.25rem;
+      background: linear-gradient(120deg, rgba(255, 255, 255, .80), rgba(253, 226, 231, .60));
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+      backdrop-filter: blur(18px) saturate(170%);
+      border-color: rgba(255, 255, 255, .85);
+      box-shadow: 0 12px 40px rgba(220, 90, 109, .18), inset 0 1px 0 rgba(255, 255, 255, .8);
+    }
+
+    .nav-link {
+      padding: .5rem 1rem;
+      border-radius: .75rem;
+      font-weight: 600;
+      color: rgba(23, 23, 26, .8);
+      transition: color .2s, background .2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.is-active {
+      color: #DC5A6D;
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .m-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity .25s, transform .25s, visibility .25s;
+    }
+
+    .m-menu.open {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+
+    .glass {
+      background: linear-gradient(120deg, rgba(255, 255, 255, .92), rgba(253, 236, 239, .85));
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, .9);
+      box-shadow: 0 16px 40px rgba(220, 90, 109, .18);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .85rem 1.6rem;
+      border-radius: .75rem;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .btn-primary {
+      background: #DC5A6D;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(220, 90, 109, .35);
+    }
+
+    .btn-primary:hover {
+      background: #C24458;
+      transform: translateY(-1px);
+    }
+
+    .no-scrollbar {
+      scrollbar-width: none;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid #DC5A6D;
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-ink font-sans antialiased">
+  <a href="#home"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg">Lompat
+    ke konten</a>
+
+  <!-- NAVBAR -->
+  <header class="fixed inset-x-0 top-0 z-50 px-3 sm:px-5">
+    <div class="mx-auto max-w-6xl relative">
+      <nav id="nav-bar" class="nav-bar flex md:grid md:grid-cols-[1fr_auto_1fr] items-center justify-between"
+        aria-label="Navigasi utama">
+        <a href="#home" class="flex items-center gap-2.5 justify-self-start" aria-label="Roti Hangat Kita, ke beranda">
+          <svg viewBox="0 0 32 32" class="w-9 h-9" aria-hidden="true">
+            <rect x="14" y="1" width="4" height="30" rx="2" transform="rotate(45 16 16)" fill="#DC5A6D" />
+            <rect x="14" y="1" width="4" height="30" rx="2" transform="rotate(-45 16 16)" fill="#DC5A6D"
+              opacity=".55" />
+          </svg>
+          <span class="font-display font-semibold text-xl sm:text-2xl tracking-wide uppercase">Roti Hangat <span
+              class="text-berry">Kita</span></span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-1 justify-self-center">
+          <li><a class="nav-link" href="#home">Beranda</a></li>
+          <li><a class="nav-link" href="#menu">Menu</a></li>
+          <li><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li><a class="nav-link" href="#lokasi">Lokasi</a></li>
+          <li><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+
+        <div class="flex items-center gap-2 justify-self-end">
+          <a href="#menu" class="btn btn-primary hidden md:inline-flex !py-2.5">Pesan sekarang</a>
+          <button id="nav-toggle" type="button"
+            class="md:hidden w-12 h-12 rounded-xl flex items-center justify-center hover:bg-white/70"
+            aria-expanded="false" aria-controls="m-menu" aria-label="Buka menu">
+            <svg id="ic-open" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg id="ic-close" class="w-7 h-7 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="m-menu" class="m-menu glass md:hidden absolute left-0 right-0 top-full mt-2 rounded-3xl p-4">
+        <ul class="flex flex-col">
+          <li><a class="nav-link block !py-3.5 text-lg" href="#home">Beranda</a></li>
+          <li><a class="nav-link block !py-3.5 text-lg" href="#menu">Menu</a></li>
+          <li><a class="nav-link block !py-3.5 text-lg" href="#tentang">Tentang</a></li>
+          <li><a class="nav-link block !py-3.5 text-lg" href="#lokasi">Lokasi</a></li>
+          <li><a class="nav-link block !py-3.5 text-lg" href="#kontak">Kontak</a></li>
+        </ul>
+        <a href="#menu" class="btn btn-primary w-full mt-3">Pesan sekarang</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" data-section class="px-3 sm:px-5 pt-24 sm:pt-28">
+      <div
+        class="mx-auto max-w-6xl rounded-[2rem] md:rounded-[2.5rem] bg-blush px-6 py-8 sm:px-10 md:px-14 md:py-14 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="order-2 md:order-1 text-center md:text-left">
+          <h1 class="font-display font-bold text-[2.6rem] leading-[1.1] sm:text-6xl lg:text-7xl">
+            Hangat dari oven, <span class="text-berry">langsung ke mejamu.</span>
+          </h1>
+          <p class="mt-5 text-lg sm:text-xl text-ink/75 max-w-lg mx-auto md:mx-0">
+            Roti, kue, dan donat buatan rumahan, dipanggang segar setiap pagi. Dipesan sebelum jam 15.00, dikirim hari
+            yang sama.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <a href="#menu" class="btn btn-primary">Pesan sekarang</a>
+            <a href="#tentang" class="btn text-ink hover:bg-white/80">Kenal lebih dekat</a>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 relative">
+          <div
+            class="rounded-[1.75rem] overflow-hidden aspect-[4/3] md:aspect-[4/5] bg-gradient-to-br from-pink-200 to-rose-300 shadow-[0_20px_50px_rgba(220,90,109,.25)]">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
+              alt="Kue cokelat dengan potongan yang sudah diiris" class="w-full h-full object-cover"
+              onerror="this.onerror=null;this.style.display='none'">
+          </div>
+          <div class="glass absolute -bottom-4 left-4 sm:left-auto sm:-left-6 rounded-2xl px-5 py-3.5">
+            <p class="font-bold leading-tight">Buka setiap hari</p>
+            <p class="text-ink/70 text-[15px]">07.00 - 21.00 WIB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU (dinamis dari data.json) -->
+    <section id="menu" data-section class="px-3 sm:px-5 pt-20 md:pt-28">
+      <div class="mx-auto max-w-6xl">
+        <h2 class="font-display font-semibold text-4xl md:text-5xl">Menu kami</h2>
+        <p class="mt-3 text-lg text-ink/70 max-w-xl">Pilih favoritmu, lalu pesan lewat Shopee atau GoFood.</p>
+        <div id="products" class="mt-10 space-y-6 md:space-y-8">
+          <p class="text-ink/60">Memuat menu...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="tentang" data-section class="px-3 sm:px-5 pt-20 md:pt-28">
+      <div
+        class="mx-auto max-w-6xl rounded-[2rem] md:rounded-[2.5rem] bg-mist px-6 py-8 sm:px-10 md:px-14 md:py-14 grid md:grid-cols-[5fr_6fr] gap-8 md:gap-14 items-center">
+        <div class="rounded-[1.75rem] overflow-hidden aspect-[4/3] bg-gradient-to-br from-sky-100 to-blue-200">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80"
+            alt="Roti yang baru dipanggang di atas meja kayu" class="w-full h-full object-cover" loading="lazy"
+            onerror="this.onerror=null;this.style.display='none'">
+        </div>
+        <div>
+          <h2 class="font-display font-semibold text-4xl md:text-5xl">Tentang <span class="text-berry">Roti Hangat
+              Kita</span></h2>
+          <p class="mt-5 text-lg leading-8 text-ink/80 max-w-xl">
+            Roti Hangat Kita adalah usaha keluarga yang berawal dari dapur rumah di Jakarta Selatan. Kami memulai dengan
+            satu resep roti sobek turunan Ibu, dan kini melayani pesanan setiap hari.
+          </p>
+          <p class="mt-4 text-lg leading-8 text-ink/80 max-w-xl">
+            Semua produk dibuat dari bahan pilihan, tanpa pengawet, dan dipanggang pada hari yang sama dengan
+            pengirimanmu.
+          </p>
+          <ul class="mt-6 grid gap-3 text-lg font-medium">
+            <li class="flex items-center gap-3"><span
+                class="w-7 h-7 rounded-full bg-berry text-white flex items-center justify-center text-sm"
+                aria-hidden="true">✓</span>Bahan segar pilihan</li>
+            <li class="flex items-center gap-3"><span
+                class="w-7 h-7 rounded-full bg-berry text-white flex items-center justify-center text-sm"
+                aria-hidden="true">✓</span>Tanpa pengawet</li>
+            <li class="flex items-center gap-3"><span
+                class="w-7 h-7 rounded-full bg-berry text-white flex items-center justify-center text-sm"
+                aria-hidden="true">✓</span>Dipanggang setiap pagi</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI (dinamis dari data.json, bisa di-swipe) -->
+    <section id="testimoni" class="pt-20 md:pt-28" aria-labelledby="testi-title">
+      <div class="mx-auto max-w-6xl px-3 sm:px-5 flex items-end justify-between gap-6">
+        <div>
+          <h2 id="testi-title" class="font-display font-semibold text-4xl md:text-5xl">Kata pelanggan kami</h2>
+          <p class="mt-3 text-lg text-ink/70 max-w-xl">Geser untuk membaca cerita pembeli lainnya.</p>
+        </div>
+        <div class="hidden sm:flex gap-2 shrink-0">
+          <button id="testi-prev" type="button"
+            class="w-12 h-12 rounded-xl bg-blush hover:bg-pink-100 disabled:opacity-40 disabled:hover:bg-blush flex items-center justify-center transition-colors"
+            aria-label="Testimoni sebelumnya">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 5-7 7 7 7" />
+            </svg>
+          </button>
+          <button id="testi-next" type="button"
+            class="w-12 h-12 rounded-xl bg-blush hover:bg-pink-100 disabled:opacity-40 disabled:hover:bg-blush flex items-center justify-center transition-colors"
+            aria-label="Testimoni berikutnya">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="mx-auto max-w-6xl">
+        <div id="testi-track" role="region" aria-roledescription="carousel" aria-label="Testimoni pelanggan"
+          tabindex="0"
+          class="no-scrollbar mt-8 flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth px-3 sm:px-5 scroll-px-3 sm:scroll-px-5 pb-4 cursor-grab select-none">
+          <p class="text-ink/60">Memuat testimoni...</p>
+        </div>
+        <div id="testi-dots" class="mt-4 flex justify-center gap-2" aria-label="Pilih testimoni"></div>
+      </div>
+    </section>
+
+    <!-- LOKASI & PETA -->
+    <section id="lokasi" data-section class="px-3 sm:px-5 pt-20 md:pt-28">
+      <div
+        class="mx-auto max-w-6xl rounded-[2rem] md:rounded-[2.5rem] bg-blush p-6 sm:p-10 md:p-14 grid md:grid-cols-[5fr_6fr] gap-8 md:gap-12 items-center">
+        <div>
+          <h2 class="font-display font-semibold text-4xl md:text-5xl">Kunjungi <span class="text-berry">toko kami</span>
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-ink/80 max-w-md">Mampir untuk roti hangat langsung dari oven, atau pesan
+            antar lewat GoFood.</p>
+
+          <ul class="mt-7 grid gap-5 text-lg">
+            <li class="flex gap-4">
+              <span class="shrink-0 w-11 h-11 rounded-xl bg-white flex items-center justify-center text-berry shadow-sm"
+                aria-hidden="true">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
+              <div>
+                <p class="font-semibold">Alamat</p>
+                <p class="text-ink/75">Jl. Contoh No. 12, Kebayoran Baru, Jakarta Selatan 12120</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="shrink-0 w-11 h-11 rounded-xl bg-white flex items-center justify-center text-berry shadow-sm"
+                aria-hidden="true">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+              </span>
+              <div>
+                <p class="font-semibold">Jam buka</p>
+                <p class="text-ink/75">Setiap hari, 07.00 - 21.00 WIB</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="shrink-0 w-11 h-11 rounded-xl bg-white flex items-center justify-center text-berry shadow-sm"
+                aria-hidden="true">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+                </svg>
+              </span>
+              <div>
+                <p class="font-semibold">Telepon / WhatsApp</p>
+                <p class="text-ink/75">0812-3456-7890</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Contoh+No.+12+Kebayoran+Baru+Jakarta+Selatan"
+              target="_blank" rel="noopener" class="btn btn-primary">Buka di Google Maps</a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener"
+              class="btn text-ink bg-white hover:bg-white/70">Chat WhatsApp</a>
+          </div>
+        </div>
+
+        <div
+          class="rounded-[1.75rem] overflow-hidden h-72 sm:h-96 md:h-[30rem] bg-white shadow-[0_16px_40px_rgba(23,23,26,.12)]">
+          <iframe title="Peta lokasi Roti Hangat Kita" class="w-full h-full border-0" loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Kebayoran+Baru,+Jakarta+Selatan&z=15&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontak" data-section class="mt-20 md:mt-28 bg-[#121826] text-white">
+    <div class="mx-auto max-w-4xl px-5 pt-16 md:pt-20 pb-10 text-center">
+      <p class="font-display font-semibold text-2xl sm:text-3xl tracking-wide uppercase">Pesan online</p>
+      <p class="mt-2 text-base tracking-[.25em] uppercase text-white/70">Lewat Shopee &amp; GoFood</p>
+
+      <h2 class="mt-12 md:mt-16 font-display font-semibold text-4xl sm:text-5xl">Yuk, ngobrol bareng kami</h2>
+      <p class="mt-6 text-xl text-white/90">Mau tanya menu, pesan kue custom, atau sekadar menyapa?</p>
+      <p class="mt-3 text-lg text-white/75">Kirim DM lewat Instagram atau chat WhatsApp kami.</p>
+      <p class="mt-6 text-base italic text-white/65 max-w-2xl mx-auto">(Kami membalas pesan pada jam buka. Untuk kue
+        custom, ajukan pesanan minimal 2 hari sebelumnya.)</p>
+      <p class="mt-10 text-xl font-semibold">Kami tunggu pesananmu!</p>
+
+      <div class="mt-12 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-10 sm:gap-16">
+        <div>
+          <p class="text-sm font-semibold tracking-[.2em] uppercase text-white/70">Media sosial</p>
+          <div class="mt-4 flex items-center justify-center gap-3">
+            <a href="https://instagram.com/rotihangatkita" target="_blank" rel="noopener" aria-label="Instagram"
+              class="w-12 h-12 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors"><svg
+                class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="https://tiktok.com/@rotihangatkita" target="_blank" rel="noopener" aria-label="TikTok"
+              class="w-12 h-12 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors"><svg
+                class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5V9.7a5.7 5.7 0 1 0 4.9 5.6V8.9a7.3 7.3 0 0 0 4.3 1.4V7.2a4.3 4.3 0 0 1-3.2-1.4Z" />
+              </svg></a>
+            <a href="https://youtube.com/@rotihangatkita" target="_blank" rel="noopener" aria-label="YouTube"
+              class="w-12 h-12 rounded-xl flex items-center justify-center hover:bg-white/10 transition-colors"><svg
+                class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <p class="text-sm font-semibold tracking-[.2em] uppercase text-white/70">Email kami</p>
+          <a href="mailto:halo@rotihangatkita.com"
+            class="mt-4 inline-flex items-center gap-3 h-12 text-lg hover:text-berry transition-colors"><svg
+              class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="3" />
+              <path d="m4 7 8 6 8-6" />
+            </svg><span>halo@rotihangatkita.com</span></a>
+        </div>
+      </div>
+
+      <div class="mt-14 border-t border-white/15 pt-8">
+        <p class="text-base text-white/65">&copy; 2026 Roti Hangat Kita. Hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

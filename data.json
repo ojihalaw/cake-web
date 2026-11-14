@@ -1,0 +1,145 @@
+{
+  "products": [
+    {
+      "id": "roti-sobek-cokelat-keju",
+      "name": "Roti Sobek Cokelat Keju",
+      "price": 32000,
+      "emoji": "🍞",
+      "image": "/images/donat-1.png",
+      "badge": "Terlaris",
+      "short": "Lembut, isi cokelat dan keju parut.",
+      "description": "Roti sobek empuk dengan isian cokelat leleh dan taburan keju cheddar. Cocok untuk sarapan bersama keluarga.",
+      "ingredients": "Tepung terigu, susu, mentega, cokelat, keju cheddar",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": "https://gofood.co.id/"
+    },
+    {
+      "id": "roti-tawar-gandum",
+      "name": "Roti Tawar Gandum",
+      "price": 28000,
+      "emoji": "🥖",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80",
+      "badge": "",
+      "short": "Tanpa pengawet, tinggi serat.",
+      "description": "Roti tawar gandum utuh yang dipanggang setiap pagi. Teksturnya padat tapi tetap lembut.",
+      "ingredients": "Tepung gandum utuh, ragi, madu, garam",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": ""
+    },
+    {
+      "id": "croissant-butter",
+      "name": "Croissant Butter",
+      "price": 22000,
+      "emoji": "🥐",
+      "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1000&q=80",
+      "badge": "",
+      "short": "Berlapis, renyah di luar.",
+      "description": "Croissant dengan lapisan mentega yang tipis dan harum. Paling enak dimakan hangat.",
+      "ingredients": "Tepung terigu, mentega, susu, ragi",
+      "shopee": "",
+      "gofood": "https://gofood.co.id/"
+    },
+    {
+      "id": "brownies-panggang",
+      "name": "Brownies Panggang",
+      "price": 45000,
+      "emoji": "🍫",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80",
+      "badge": "Baru",
+      "short": "Pekat cokelat, bagian atas renyah.",
+      "description": "Brownies panggang dengan cokelat premium dan topping kacang almond. Satu loyang berisi 9 potong.",
+      "ingredients": "Cokelat, mentega, telur, gula, almond",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": "https://gofood.co.id/"
+    },
+    {
+      "id": "red-velvet-slice",
+      "name": "Red Velvet Slice",
+      "price": 38000,
+      "emoji": "🍰",
+      "image": "",
+      "badge": "",
+      "short": "Krim keju yang lembut dan ringan.",
+      "description": "Satu potong red velvet dengan lapisan cream cheese frosting. Simpan di kulkas agar tetap segar.",
+      "ingredients": "Tepung, kakao, cream cheese, buttermilk",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": "https://gofood.co.id/"
+    },
+    {
+      "id": "bolu-pandan",
+      "name": "Bolu Pandan",
+      "price": 30000,
+      "emoji": "🧁",
+      "image": "",
+      "badge": "",
+      "short": "Wangi pandan, teksturnya basah.",
+      "description": "Bolu pandan lembut dengan aroma alami dari daun pandan segar.",
+      "ingredients": "Telur, gula, tepung, santan, pandan",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": ""
+    },
+    {
+      "id": "donat-glaze-original",
+      "name": "Donat Glaze Original",
+      "price": 8000,
+      "emoji": "🍩",
+      "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1000&q=80",
+      "badge": "Terlaris",
+      "short": "Klasik, manis pas, empuk.",
+      "description": "Donat kentang dengan glaze gula tipis. Dijual satuan atau dalam box isi 6.",
+      "ingredients": "Tepung terigu, kentang, ragi, gula",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": "https://gofood.co.id/"
+    },
+    {
+      "id": "donat-mini-box",
+      "name": "Donat Mini Box (12 pcs)",
+      "price": 55000,
+      "emoji": "🍩",
+      "image": "",
+      "badge": "Hemat",
+      "short": "Campur 4 rasa dalam satu box.",
+      "description": "Isi 12 donat mini dengan rasa cokelat, stroberi, keju, dan tiramisu. Pas untuk arisan atau rapat kantor.",
+      "ingredients": "Tepung terigu, cokelat, keju, stroberi, kopi",
+      "shopee": "https://shopee.co.id/toko-kamu",
+      "gofood": "https://gofood.co.id/"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Sari Wulandari",
+      "role": "Pelanggan GoFood, Jakarta Selatan",
+      "rating": 5,
+      "text": "Roti sobeknya masih hangat waktu sampai, empuk banget. Anak-anak langsung rebutan. Sekarang jadi langganan tiap akhir pekan."
+    },
+    {
+      "id": "t2",
+      "name": "Budi Santoso",
+      "role": "Pembeli Shopee, Depok",
+      "rating": 5,
+      "text": "Pesan brownies untuk acara kantor, semua suka. Kemasannya rapi dan tidak penyok sama sekali waktu sampai."
+    },
+    {
+      "id": "t3",
+      "name": "Dewi Anggraini",
+      "role": "Pelanggan GoFood, Bekasi",
+      "rating": 5,
+      "text": "Donat glaze-nya manisnya pas, tidak bikin enek. Pengirimannya cepat, masih lembut seperti baru keluar dari oven."
+    },
+    {
+      "id": "t4",
+      "name": "Rizky Pratama",
+      "role": "Pembeli Shopee, Tangerang",
+      "rating": 4,
+      "text": "Croissant-nya berlapis dan wangi mentega. Enak dipanaskan sebentar di oven sebelum dimakan. Akan pesan lagi."
+    },
+    {
+      "id": "t5",
+      "name": "Maya Putri",
+      "role": "Pelanggan setia, Jakarta Barat",
+      "rating": 5,
+      "text": "Sudah beberapa kali pesan donat mini box untuk arisan. Selalu habis duluan, dan harganya masuk akal."
+    }
+  ]
+}
